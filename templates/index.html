@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assistant Basic Details</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 720px; margin: 48px auto; line-height: 1.6; padding: 0 16px; }
+header { text-align: center; margin-bottom: 24px; }
+.card { border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.03);}
+ul { list-style: disc; margin-left: 20px; }
+footer { text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<header>
+<h1>Assistant Basic Details</h1>
+</header>
+
+
+<div class="card">
+<h2>Model</h2>
+<p>{{ info.model }}</p>
+
+
+<h3>Description</h3>
+<p>{{ info.description }}</p>
+
+
+<h3>Knowledge & Date</h3>
+<p>Knowledge cutoff: <strong>{{ info.knowledge_cutoff }}</strong></p>
+<p>Current date: <strong>{{ info.current_date }}</strong></p>
+
+
+<h3>Capabilities</h3>
+<ul>
+{% for c in info.capabilities %}
+<li>{{ c }}</li>
+{% endfor %}
+</ul>
+</div>
+
+
+<footer>
+<p>Running in a Docker container — served by Flask.</p>
+</footer>
+</body>
+</html>
